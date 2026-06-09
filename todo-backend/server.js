@@ -1,10 +1,6 @@
 // .env
 require('dotenv').config();
 
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-
 //Using Express
 const express = require('express');
 const mongoose = require('mongoose');
@@ -19,6 +15,8 @@ app.use(cors())
 // let todos = [];
 
 // connecting mongodb
+console.log("MONGO_URI:", process.env.MONGO_URI);
+
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log('DB Connected!');
@@ -26,6 +24,7 @@ mongoose.connect(process.env.MONGO_URI)
     .catch((err) => {
         console.log(err);
     });
+
 
 //creating schema
 const todoSchema = new mongoose.Schema({
