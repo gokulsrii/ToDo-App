@@ -12,7 +12,7 @@ export default function App() {
   const [editTitle, setEditTitle] = useState("");
   const [editDescription, setEditDescription] = useState("");
 
-  const API = "https://to-do-app-three-liard.vercel.app/todos";
+  const API = `${process.env.REACT_APP_API_URL}/todos`;
 
   // ================= GET TODOS =================
   const fetchTodos = async () => {
