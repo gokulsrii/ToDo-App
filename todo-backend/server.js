@@ -1,3 +1,10 @@
+// .env
+require('dotenv').config();
+
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+
 //Using Express
 const express = require('express');
 const mongoose = require('mongoose');
@@ -12,13 +19,13 @@ app.use(cors())
 // let todos = [];
 
 // connecting mongodb
-mongoose.connect('mongodb://localhost:27017/mern-app')
+mongoose.connect(process.env.MONGO_URI)
     .then(() => {
-        console.log('DB Connected!')
+        console.log('DB Connected!');
     })
     .catch((err) => {
-        console.log(err)
-    })
+        console.log(err);
+    });
 
 //creating schema
 const todoSchema = new mongoose.Schema({
@@ -100,7 +107,7 @@ app.delete('/todos/:id', async (req, res) => {
     })
 
 //Start the server
-const port = 8000;
+const port = process.env.PORT || 8000;
 app.listen(port, () => {
     console.log("Server is listening to port " + port);
 })
