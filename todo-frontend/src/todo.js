@@ -131,7 +131,7 @@ export default function App() {
         <h1 style={styles.heading}>ToDo List</h1>
 
         <p style={styles.subText}>
-          Apple Style MERN Stack Todo App
+          Responsive Todo Management System
         </p>
 
         {/* ERROR */}
