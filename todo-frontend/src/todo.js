@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 
 export default function App() {
@@ -15,19 +15,20 @@ export default function App() {
   const API = `${process.env.REACT_APP_API_URL}/todos`;
 
   // ================= GET TODOS =================
-  const fetchTodos = async () => {
-    try {
-      const res = await axios.get(API);
-      setTodos(res.data);
-    } catch (err) {
-      console.log(err);
-      setError("Failed to load todos");
-    }
-  };
+ const fetchTodos = useCallback(async () => {
+  try {
+    const res = await axios.get(API);
+    setTodos(res.data);
+  } catch (err) {
+    console.log(err);
+    setError("Failed to load todos");
+  }
+}, [API]);
 
-  useEffect(() => {
-    fetchTodos();
-  }, []);
+useEffect(() => {
+  fetchTodos();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
 
   // ================= VALIDATION =================
   const validate = () => {
