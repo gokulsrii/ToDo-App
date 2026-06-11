@@ -473,10 +473,13 @@ editActions: {
 },
 
 taskHeader: {
-  fontSize: "20px",
-  fontWeight: "700",
-  color: "#1d1d1f",
-  marginBottom: "15px",
+  padding: "10px 14px",
+  fontSize: "12px",
+  fontWeight: "600",
+  color: "#8e8e93",
+  letterSpacing: "0.6px",
+  textTransform: "uppercase",
+  background: "#f2f2f7",
 },
 
 };
