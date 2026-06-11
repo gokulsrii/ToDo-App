@@ -162,103 +162,106 @@ useEffect(() => {
         </form>
 
         {/* TODO LIST */}
-        <div style={styles.list}>
-          {todos.length === 0 ? (
-            <p style={styles.emptyText}>No tasks available</p>
-          ) : (
-            todos.map((todo) => (
-              <div key={todo._id} style={styles.todoCard}>
-                {editingId === todo._id ? (
-                  <div style={styles.editContainer}>
-                    <input
-                      type="text"
-                      value={editTitle}
-                      onChange={(e) =>
-                        setEditTitle(e.target.value)
-                      }
-                      style={styles.editInput}
-                    />
+        {/* TODO LIST */}
+<div style={styles.taskContainer}>
+  <div style={styles.taskHeader}>
+    My Tasks ({todos.length})
+  </div>
 
-                    <input
-                      type="text"
-                      value={editDescription}
-                      onChange={(e) =>
-                        setEditDescription(e.target.value)
-                      }
-                      style={styles.editInput}
-                    />
+  <div style={styles.list}>
+    {todos.length === 0 ? (
+      <p style={styles.emptyText}>No tasks available</p>
+    ) : (
+      todos.map((todo) => (
+        <div key={todo._id} style={styles.todoCard}>
+          {editingId === todo._id ? (
+            <div style={styles.editContainer}>
+              <input
+                type="text"
+                value={editTitle}
+                onChange={(e) => setEditTitle(e.target.value)}
+                style={styles.editInput}
+              />
 
-                    <div style={styles.actions}>
-                      <button
-                        onClick={() => updateTodo(todo._id)}
-                        style={styles.saveBtn}
-                      >
-                        Save
-                      </button>
+              <input
+                type="text"
+                value={editDescription}
+                onChange={(e) => setEditDescription(e.target.value)}
+                style={styles.editInput}
+              />
 
-                      <button
-                        onClick={() => setEditingId(null)}
-                        style={styles.cancelBtn}
-                      >
-                        Cancel
-                      </button>
-                    </div>
-                  </div>
-                ) : (
-                  <>
-                    <div
-                      onClick={() => toggleTodo(todo)}
-                      style={{ flex: 1, cursor: "pointer" }}
-                    >
-                      <h3
-                        style={{
-                          margin: 0,
-                          fontSize: "18px",
-                          color: "#1d1d1f",
-                          textDecoration: todo.completed
-                            ? "line-through"
-                            : "none",
-                          opacity: todo.completed ? 0.5 : 1,
-                        }}
-                      >
-                        {todo.title}
-                      </h3>
+              <div style={styles.actions}>
+                <button
+                  onClick={() => updateTodo(todo._id)}
+                  style={styles.saveBtn}
+                >
+                  Save
+                </button>
 
-                      <p
-                        style={{
-                          marginTop: "6px",
-                          color: "#6e6e73",
-                          fontSize: "14px",
-                          textDecoration: todo.completed
-                            ? "line-through"
-                            : "none",
-                        }}
-                      >
-                        {todo.description}
-                      </p>
-                    </div>
-
-                    <div style={styles.actions}>
-                      <button
-                        onClick={() => startEdit(todo)}
-                        style={styles.editBtn}
-                      >
-                        Edit
-                      </button>
-
-                      <button
-                        onClick={() => deleteTodo(todo._id)}
-                        style={styles.deleteBtn}
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </>
-                )}
+                <button
+                  onClick={() => setEditingId(null)}
+                  style={styles.cancelBtn}
+                >
+                  Cancel
+                </button>
               </div>
-            ))
+            </div>
+          ) : (
+            <>
+              <div
+                onClick={() => toggleTodo(todo)}
+                style={{ flex: 1, cursor: "pointer" }}
+              >
+                <h3
+                  style={{
+                    margin: 0,
+                    fontSize: "18px",
+                    color: "#1d1d1f",
+                    textDecoration: todo.completed
+                      ? "line-through"
+                      : "none",
+                    opacity: todo.completed ? 0.5 : 1,
+                  }}
+                >
+                  {todo.title}
+                </h3>
+
+                <p
+                  style={{
+                    marginTop: "6px",
+                    color: "#6e6e73",
+                    fontSize: "14px",
+                    textDecoration: todo.completed
+                      ? "line-through"
+                      : "none",
+                  }}
+                >
+                  {todo.description}
+                </p>
+              </div>
+
+              <div style={styles.actions}>
+                <button
+                  onClick={() => startEdit(todo)}
+                  style={styles.editBtn}
+                >
+                  Edit
+                </button>
+
+                <button
+                  onClick={() => deleteTodo(todo._id)}
+                  style={styles.deleteBtn}
+                >
+                  Delete
+                </button>
+              </div>
+            </>
           )}
         </div>
+      ))
+    )}
+  </div>
+</div>
       </div>
     </div>
   );
@@ -266,164 +269,175 @@ useEffect(() => {
 
 /* ================= STYLES ================= */
 
+
+
 const styles = {
   container: {
     minHeight: "100vh",
+    background: "#f2f2f7",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
-    background: "#f5f5f7",
+    padding: "20px",
     fontFamily:
       "-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif",
-    padding: "20px",
   },
 
   card: {
     width: "100%",
     maxWidth: "650px",
-    background: "#ffffff",
-    borderRadius: "30px",
-    padding: "35px",
-    boxShadow: "0 10px 40px rgba(0,0,0,0.08)",
-    border: "1px solid #ececec",
+    marginTop: "30px",
   },
 
   heading: {
-    textAlign: "center",
-    fontSize: "36px",
+    fontSize: "38px",
     fontWeight: "700",
-    color: "#1d1d1f",
-    marginBottom: "8px",
+    color: "#000",
+    marginBottom: "6px",
   },
 
   subText: {
-    textAlign: "center",
-    color: "#6e6e73",
-    marginBottom: "30px",
+    color: "#8e8e93",
     fontSize: "15px",
+    marginBottom: "25px",
   },
 
   form: {
-    display: "flex",
-    gap: "12px",
-    marginBottom: "30px",
-    flexWrap: "wrap",
+    background: "#fff",
+    borderRadius: "20px",
+    padding: "16px",
+    marginBottom: "20px",
+    boxShadow: "0 2px 10px rgba(0,0,0,0.04)",
   },
 
   input: {
-    flex: 1,
-    minWidth: "180px",
-    height: "52px",
-    borderRadius: "16px",
-    border: "1px solid #d2d2d7",
-    padding: "0 16px",
-    fontSize: "15px",
-    background: "#fbfbfd",
+    width: "100%",
+    height: "48px",
+    border: "none",
+    borderBottom: "1px solid #e5e5ea",
+    padding: "0 12px",
+    fontSize: "16px",
     outline: "none",
+    background: "transparent",
+    marginBottom: "10px",
   },
 
   button: {
-    height: "52px",
-    padding: "0 24px",
+    width: "100%",
+    height: "48px",
     border: "none",
-    borderRadius: "16px",
-    background: "#0071e3",
+    borderRadius: "14px",
+    background: "#007aff",
     color: "#fff",
+    fontSize: "16px",
     fontWeight: "600",
     cursor: "pointer",
-    fontSize: "15px",
+    marginTop: "8px",
   },
 
   list: {
     display: "flex",
     flexDirection: "column",
-    gap: "16px",
+    gap: "12px",
   },
 
   todoCard: {
-    background: "#fbfbfd",
-    border: "1px solid #ececec",
-    borderRadius: "20px",
-    padding: "18px",
+    background: "#ffffff",
+    borderRadius: "18px",
+    padding: "16px",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    gap: "15px",
+    boxShadow: "0 1px 6px rgba(0,0,0,0.04)",
+  },
+
+  todoContent: {
+    flex: 1,
+  },
+
+  todoTitle: {
+    fontSize: "17px",
+    fontWeight: "600",
+    color: "#1c1c1e",
+    marginBottom: "4px",
+  },
+
+  todoDesc: {
+    fontSize: "14px",
+    color: "#8e8e93",
   },
 
   actions: {
     display: "flex",
-    gap: "10px",
+    gap: "8px",
   },
 
   editBtn: {
-    background: "#f2f2f2",
+    background: "#f2f2f7",
+    color: "#007aff",
     border: "none",
-    padding: "10px 16px",
-    borderRadius: "12px",
+    borderRadius: "10px",
+    padding: "8px 12px",
     cursor: "pointer",
     fontWeight: "600",
   },
 
   deleteBtn: {
     background: "#ff3b30",
-    border: "none",
     color: "#fff",
-    padding: "10px 16px",
-    borderRadius: "12px",
+    border: "none",
+    borderRadius: "10px",
+    padding: "8px 12px",
     cursor: "pointer",
     fontWeight: "600",
   },
 
   saveBtn: {
     background: "#34c759",
-    border: "none",
     color: "#fff",
-    padding: "10px 16px",
-    borderRadius: "12px",
+    border: "none",
+    borderRadius: "10px",
+    padding: "8px 12px",
     cursor: "pointer",
-    fontWeight: "600",
   },
 
   cancelBtn: {
     background: "#8e8e93",
-    border: "none",
     color: "#fff",
-    padding: "10px 16px",
-    borderRadius: "12px",
+    border: "none",
+    borderRadius: "10px",
+    padding: "8px 12px",
     cursor: "pointer",
-    fontWeight: "600",
-  },
-
-  editContainer: {
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    gap: "12px",
-  },
-
-  editInput: {
-    height: "48px",
-    borderRadius: "14px",
-    border: "1px solid #d2d2d7",
-    padding: "0 14px",
-    fontSize: "15px",
-    background: "#fff",
-    outline: "none",
   },
 
   error: {
-    background: "#fff2f0",
-    color: "#d70015",
+    background: "#fff2f2",
+    color: "#ff3b30",
+    borderRadius: "12px",
     padding: "12px",
-    borderRadius: "14px",
+    marginBottom: "15px",
     textAlign: "center",
-    marginBottom: "18px",
   },
 
   emptyText: {
     textAlign: "center",
-    color: "#86868b",
-    fontSize: "15px",
+    color: "#8e8e93",
+    marginTop: "20px",
   },
+
+  // task box 
+  taskContainer: {
+  background: "#ffffff",
+  borderRadius: "24px",
+  padding: "18px",
+  marginTop: "20px",
+  boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
+},
+
+taskHeader: {
+  fontSize: "20px",
+  fontWeight: "700",
+  color: "#1d1d1f",
+  marginBottom: "15px",
+},
+
 };
