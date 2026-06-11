@@ -176,36 +176,38 @@ useEffect(() => {
         <div key={todo._id} style={styles.todoCard}>
           {editingId === todo._id ? (
             <div style={styles.editContainer}>
-              <input
-                type="text"
-                value={editTitle}
-                onChange={(e) => setEditTitle(e.target.value)}
-                style={styles.editInput}
-              />
+  <input
+    type="text"
+    value={editTitle}
+    onChange={(e) => setEditTitle(e.target.value)}
+    style={styles.editInput}
+    placeholder="Edit title"
+  />
 
-              <input
-                type="text"
-                value={editDescription}
-                onChange={(e) => setEditDescription(e.target.value)}
-                style={styles.editInput}
-              />
+  <input
+    type="text"
+    value={editDescription}
+    onChange={(e) => setEditDescription(e.target.value)}
+    style={styles.editInput}
+    placeholder="Edit description"
+  />
 
-              <div style={styles.actions}>
-                <button
-                  onClick={() => updateTodo(todo._id)}
-                  style={styles.saveBtn}
-                >
-                  Save
-                </button>
+  <div style={styles.editActions}>
+    <button
+      onClick={() => updateTodo(todo._id)}
+      style={styles.saveBtn}
+    >
+      Save
+    </button>
 
-                <button
-                  onClick={() => setEditingId(null)}
-                  style={styles.cancelBtn}
-                >
-                  Cancel
-                </button>
-              </div>
-            </div>
+    <button
+      onClick={() => setEditingId(null)}
+      style={styles.cancelBtn}
+    >
+      Cancel
+    </button>
+  </div>
+</div>
           ) : (
             <>
               <div
@@ -425,6 +427,41 @@ deleteBtn: {
     color: "#8e8e93",
     marginTop: "20px",
   },
+
+  // edit input box
+  editContainer: {
+  background: "#ffffff",
+  borderRadius: "16px",
+  padding: "12px",
+  border: "1px solid #f1f1f1",
+  boxShadow: "0 6px 18px rgba(0,0,0,0.06)",
+  display: "flex",
+  flexDirection: "column",
+  gap: "10px",
+  width: "100%",
+},
+
+editInput: {
+  height: "42px",
+  borderRadius: "10px",
+  border: "1px solid #e5e5ea",
+  padding: "0 12px",
+  fontSize: "14px",
+  outline: "none",
+  background: "#f9f9fb",
+  transition: "0.2s ease",
+},
+
+editInputFocus: {
+  border: "1px solid #007aff",
+  background: "#fff",
+},
+
+editActions: {
+  display: "flex",
+  gap: "8px",
+  justifyContent: "flex-end",
+},
 
   // task box 
   taskContainer: {
