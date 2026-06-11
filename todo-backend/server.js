@@ -62,16 +62,16 @@ app.post('/todos', async (req, res) => {
 
 //Get all items
 app.get('/todos', async (req, res) => {
-    try {
-
-        const todos = await todoModel.find();
-        res.json(todos);
-    } catch (error) {
-        console.log(error)
-        res.status(500).json({ message: error.message });
-    }
-
-})
+  try {
+    const todos = await todoModel.find();
+    res.json(todos);
+  } catch (error) {
+    console.error("GET TODOS ERROR:", error);
+    res.status(500).json({
+      message: error.message
+    });
+  }
+});
 
 // Update a todo item
 app.put("/todos/:id", async (req, res) => {
