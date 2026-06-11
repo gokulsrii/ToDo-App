@@ -341,55 +341,57 @@ const styles = {
   },
 
   todoCard: {
-    background: "#ffffff",
-    borderRadius: "18px",
-    padding: "16px",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    boxShadow: "0 1px 6px rgba(0,0,0,0.04)",
-  },
+  background: "#fff",
+  padding: "8px 12px",
+  borderBottom: "1px solid #f2f2f7",
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+},
 
   todoContent: {
     flex: 1,
   },
 
   todoTitle: {
-    fontSize: "17px",
-    fontWeight: "600",
-    color: "#1c1c1e",
-    marginBottom: "4px",
-  },
+  fontSize: "15px",
+  fontWeight: "600",
+  color: "#1d1d1f",
+  margin: "0",
+},
+
 
   todoDesc: {
-    fontSize: "14px",
-    color: "#8e8e93",
-  },
+  fontSize: "12px",
+  color: "#8e8e93",
+  marginTop: "2px",
+  marginBottom: "0",
+},
 
-  actions: {
-    display: "flex",
-    gap: "8px",
-  },
+ actions: {
+  display: "flex",
+  gap: "5px",
+},
 
-  editBtn: {
-    background: "#f2f2f7",
-    color: "#007aff",
-    border: "none",
-    borderRadius: "10px",
-    padding: "8px 12px",
-    cursor: "pointer",
-    fontWeight: "600",
-  },
+editBtn: {
+  padding: "6px 10px",
+  fontSize: "12px",
+  borderRadius: "8px",
+  border: "none",
+  background: "#f2f2f7",
+  color: "#007aff",
+  cursor: "pointer",
+},
 
-  deleteBtn: {
-    background: "#ff3b30",
-    color: "#fff",
-    border: "none",
-    borderRadius: "10px",
-    padding: "8px 12px",
-    cursor: "pointer",
-    fontWeight: "600",
-  },
+deleteBtn: {
+  padding: "6px 10px",
+  fontSize: "12px",
+  borderRadius: "8px",
+  border: "none",
+  background: "#ff3b30",
+  color: "#fff",
+  cursor: "pointer",
+},
 
   saveBtn: {
     background: "#34c759",
