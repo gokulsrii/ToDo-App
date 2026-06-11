@@ -465,11 +465,11 @@ editActions: {
 
   // task box 
   taskContainer: {
-  marginTop: "18px",
   background: "#ffffff",
-  borderRadius: "18px",
-  overflow: "hidden",
-  border: "1px solid #e5e5ea",
+  borderRadius: "24px",
+  padding: "18px",
+  marginTop: "20px",
+  boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
 },
 
 taskHeader: {
