@@ -16,8 +16,6 @@ app.use(
   })
 );
 
-//Sample in-memory storage for todo items
-// let todos = [];
 
 // connecting mongodb
 console.log("MONGO_URI:", process.env.MONGO_URI);
@@ -27,8 +25,8 @@ mongoose.connect(process.env.MONGO_URI)
         console.log('DB Connected!');
     })
     .catch((err) => {
-        console.log(err);
-    });
+    console.error("MongoDB Connection Error:", err);
+});
 
 
 //creating schema
