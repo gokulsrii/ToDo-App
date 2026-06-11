@@ -9,7 +9,12 @@ const cors = require('cors')
 //create an instance of express
 const app = express();
 app.use(express.json())
-app.use(cors())
+app.use(
+  cors({
+    origin: "https://todo-app-frontend-zeta-five.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  })
+);
 
 //Sample in-memory storage for todo items
 // let todos = [];
