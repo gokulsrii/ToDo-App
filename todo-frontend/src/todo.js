@@ -467,19 +467,20 @@ editActions: {
   taskContainer: {
   marginTop: "20px",
   background: "#ffffff",
-  borderRadius: "16px",
+  borderRadius: "20px",
   overflow: "hidden",
   border: "1px solid #e5e5ea",
+  boxShadow: "0 8px 20px rgba(0,0,0,0.06)",
 },
 
 taskHeader: {
-  padding: "12px 16px",
-  fontSize: "11px",
+  padding: "14px 16px",
+  fontSize: "12px",
   fontWeight: "700",
-  color: "#8e8e93",
-  letterSpacing: "1px",
+  color: "#6e6e73",
+  letterSpacing: "0.8px",
   textTransform: "uppercase",
-  background: "#f9f9fb",
+  background: "linear-gradient(180deg, #f9f9fb, #f2f2f7)",
   borderBottom: "1px solid #e5e5ea",
 },
 
