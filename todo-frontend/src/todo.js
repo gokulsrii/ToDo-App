@@ -465,21 +465,22 @@ editActions: {
 
   // task box 
   taskContainer: {
-  background: "#ffffff",
-  borderRadius: "24px",
-  padding: "18px",
   marginTop: "20px",
-  boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
+  background: "#ffffff",
+  borderRadius: "16px",
+  overflow: "hidden",
+  border: "1px solid #e5e5ea",
 },
 
 taskHeader: {
-  padding: "10px 14px",
-  fontSize: "12px",
-  fontWeight: "600",
+  padding: "12px 16px",
+  fontSize: "11px",
+  fontWeight: "700",
   color: "#8e8e93",
-  letterSpacing: "0.6px",
+  letterSpacing: "1px",
   textTransform: "uppercase",
-  background: "#f2f2f7",
+  background: "#f9f9fb",
+  borderBottom: "1px solid #e5e5ea",
 },
 
 };
